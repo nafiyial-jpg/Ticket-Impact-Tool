@@ -3,54 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Privacy Policy | Ticket Impact Tool</title>
+    <title>Privacy Policy | Ticket Impact Tool</title>
+    <!-- 1. 小圖示同步 -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚖️</text></svg>">
-	<link rel="stylesheet" href="https://fonts.googleapis.com">
-	<style>
+    
+    <!-- 2. 字體完整引用 -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com">
+    
+    <style>
         :root { --primary: #0f172a; --accent: #2563eb; --bg: #f8fafc; --white: #ffffff; --border: #e2e8f0; --text-sub: #64748b; }
-        * { box-sizing: border-box; }
+        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--primary); margin: 0; padding: 0; line-height: 1.6; }
         .container { max-width: 1000px; margin: 0 auto; padding: 15px; }
         
-        .hero { text-align: center; padding: 40px 10px 20px 10px; }
+        .hero { text-align: center; padding: 45px 10px 25px 10px; }
         h1 { font-size: 2.5rem; font-weight: 800; letter-spacing: -0.04em; margin: 0; }
 
         .content-card { 
-            background: var(--white); padding: 30px 20px; border-radius: 24px; 
+            background: var(--white); padding: 40px 30px; border-radius: 24px; 
             border: 1px solid var(--border); margin-bottom: 50px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
         }
-        h2 { font-size: 1.4rem; font-weight: 800; margin-top: 30px; border-left: 5px solid var(--accent); padding-left: 15px; }
-        p, li { color: #475569; font-size: 1rem; }
-        
-		/* 統一 Footer 風格，消除字體大小與粗細差異 */
-		footer { 
-			text-align: center; 
-			padding: 30px 0; 
-			border-top: 1px solid var(--border); 
-			color: #94a3b8 !important; /* 強制灰色 */
-			margin-top: 40px;
-			width: 100%;
-		}
+        h2 { font-size: 1.4rem; font-weight: 800; margin-top: 35px; border-left: 5px solid var(--accent); padding-left: 15px; color: var(--primary); }
+        p, li { color: #475569; font-size: 1rem; margin-bottom: 15px; }
+        ul { padding-left: 20px; }
+        .last-update { font-size: 0.85rem; color: var(--text-sub); font-weight: 600; margin-bottom: 30px; }
 
-		footer p { 
-			font-size: 13px !important; /* 使用絕對像素確保完全一致 */
-			margin: 8px 0 !important;
-			color: #94a3b8 !important;
-			font-weight: 400 !important;
-		}
+        /* 返回頂部按鈕同步 */
+        #backToTop {
+            position: fixed; bottom: 25px; right: 20px; width: 45px; height: 45px;
+            background: var(--primary); color: white; border: none; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2); opacity: 0; visibility: hidden;
+            transition: 0.3s; z-index: 1000; font-size: 18px;
+        }
+        #backToTop.show { opacity: 1; visibility: visible; }
+        #backToTop:hover { background: var(--accent); }
 
-		footer a { 
-			color: var(--accent) !important; 
-			text-decoration: none !important; 
-			font-weight: 700 !important; 
-			margin: 0 10px; 
-			font-size: 13px !important;
-		}
+        /* 統一 Footer 修正版 */
+        footer { text-align: center; padding: 30px 0; border-top: 1px solid var(--border); color: #94a3b8 !important; margin-top: 40px; width: 100%; }
+        footer p { font-size: 13px !important; margin: 8px 0 !important; color: #94a3b8 !important; font-weight: 400 !important; }
+        footer a { color: var(--accent) !important; text-decoration: none !important; font-weight: 700 !important; margin: 0 10px; font-size: 13px !important; }
+
+        @media (max-width: 480px) { h1 { font-size: 2.1rem; } .content-card { padding: 30px 20px; } }
     </style>
 </head>
 <body>
     <div class="container">
         <header class="hero"><h1>Privacy Policy</h1></header>
+        
         <main class="content-card">
             <p class="last-update">Last updated: March 2026</p>
 
@@ -58,14 +59,14 @@
             <p>Welcome to Ticket Impact Tool. Your privacy is critically important to us. This policy explains how we handle information when you use our calculators.</p>
 
             <h2>2. No Personal Data Collection</h2>
-            <p>Our tool is designed for calculation purposes only. We **do not** collect, store, or share any personal identifying information such as:</p>
+            <p>Our tool is designed for calculation purposes only. We <strong>do not</strong> collect, store, or share any personal identifying information such as:</p>
             <ul>
                 <li>Names or addresses</li>
                 <li>License plate numbers</li>
                 <li>Driver's license details</li>
                 <li>Actual insurance policy numbers</li>
             </ul>
-            <p>All calculations are performed locally in your browser. Any data you input into the calculator (e.g., monthly premium) stays on your device and is not sent to our servers.</p>
+            <p>All calculations are performed locally in your browser. Any data you input into the calculator stays on your device and is not sent to our servers.</p>
 
             <h2>3. Third-Party Advertising</h2>
             <p>We use third-party advertising services (such as Google AdSense) to serve ads when you visit our website. These companies may use cookies to provide advertisements about goods and services of interest to you.</p>
@@ -79,9 +80,31 @@
             <h2>6. Contact Us</h2>
             <p>If you have any questions about this Privacy Policy, please contact us through our main portal.</p>
         </main>
-        <footer><p>© 2026 Ticket Impact Tool. For estimation purposes only.<a href="index.html">Home</a> <a href="privacy.html">Privacy Policy</a></p></footer>
+
+        <button id="backToTop" title="Back to Top">↑</button>
+
+        <footer>
+            <p>© 2026 Ticket Impact Tool. For estimation purposes only.</p>
+            <p>
+                <a href="index.html">Home</a> 
+                <a href="privacy.html">Privacy Policy</a>
+            </p>
+        </footer>
     </div>
+
+    <script>
+        // 返回頂部邏輯
+        const btt = document.getElementById('backToTop');
+        window.onscroll = function() {
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                btt.classList.add('show');
+            } else {
+                btt.classList.remove('show');
+            }
+        };
+        btt.onclick = function() {
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        };
+    </script>
 </body>
 </html>
-
-
