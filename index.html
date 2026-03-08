@@ -36,9 +36,9 @@
             <h1>Ticket Impact Tool</h1>
             <p class="sub-text">Calculates 2026 speeding fines and insurance surcharges by state.</p>
 			<div class="share-box">
-				<a href="#" id="main-fb" class="s-btn s-fb" target="_blank">Share on FB</a>
-				<a href="#" id="main-tw" class="s-btn s-tw" target="_blank">Share on X</a>
-				<a href="#" id="main-wa" class="s-btn s-wa" target="_blank">WhatsApp</a>
+			    <a href="javascript:void(0)" onclick="shareMain('fb')" class="s-btn s-fb">Share on FB</a>
+			    <a href="javascript:void(0)" onclick="shareMain('tw')" class="s-btn s-tw">Share on X</a>
+			    <a href="javascript:void(0)" onclick="shareMain('wa')" class="s-btn s-wa">WhatsApp</a>
 			</div>
         </header>
         <nav class="grid" id="state-grid"></nav>
@@ -50,37 +50,28 @@
         Object.keys(states).sort().forEach(code => {
             const a = document.createElement('a'); a.href = code + ".html"; a.className = "state-card"; a.innerText = states[code]; grid.appendChild(a);
         });
-	   // --- 主頁專用動態分享邏輯 ---
+		// --- 強制分享邏輯 ---
 		function shareMain(platform) {
-			const currentUrl = window.location.href;
-			const title = "USA Speeding Ticket & Insurance Cost Calculator 2026";
-			const text = "Calculate how much a speeding ticket really costs in your state (Fines + Insurance Hike)!";
-
-			// 如果是手機，優先喚起原生分享介面 (最穩定)
-			if (navigator.share && /Android|iPhone|iPad/i.test(navigator.userAgent)) {
-				navigator.share({
-					title: title,
-					text: text,
-					url: currentUrl
-				}).catch(() => fallbackShare(platform, currentUrl, text));
-			} else {
-				fallbackShare(platform, currentUrl, text);
-			}
-		}
-
-		function fallbackShare(platform, url, text) {
+			// 取得目前網址，如果是在本地端測試(file://)，分享會跳轉但 FB 會顯示錯誤，這是正常的
+			const currentUrl = encodeURIComponent(window.location.href);
+			const shareText = encodeURIComponent("Check out this 2026 Speeding Ticket & Insurance Cost Calculator!");
+			
 			let link = "";
-			const u = encodeURIComponent(url);
-			const t = encodeURIComponent(text);
+			if (platform === 'fb') {
+				link = "https://www.facebook.com" + currentUrl;
+			} else if (platform === 'tw') {
+				link = "https://twitter.com" + currentUrl + "&text=" + shareText;
+			} else if (platform === 'wa') {
+				link = "https://api.whatsapp.com" + shareText + "%20" + currentUrl;
+			}
 
-			if (platform === 'fb') link = `https://www.facebook.com{u}`;
-			if (platform === 'tw') link = `https://twitter.com{u}&text=${t}`;
-			if (platform === 'wa') link = `https://api.whatsapp.com{t}%20${u}`;
-
-			// 使用小彈窗開啟，避免離開主網頁
-			window.open(link, '_blank', 'width=600,height=450,resizable=yes');
+			// 直接在當前分頁開啟或新分頁開啟，不使用彈窗以免被攔截
+			if (link !== "") {
+				window.open(link, '_blank');
+			}
 		}
 	</script>
 </body>
 </html>
+
 
