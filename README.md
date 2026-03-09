@@ -1,7 +1,7 @@
-# Speeding-Ticket-Cost-Calculator
+# Speeding-Ticket-Calculator
 Calculates speeding fines and insurance surcharges by state.
 
-# ⚖️ Speeding Ticket Cost Calculator (2026 Edition)
+# ⚖️ Speeding Ticket Calculator (2026 Edition)
 
 A high-performance, mobile-optimized suite of calculators designed to estimate the **total financial impact** of speeding violations across all 51 US states. 
 
